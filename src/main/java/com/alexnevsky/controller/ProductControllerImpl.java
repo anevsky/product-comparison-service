@@ -6,6 +6,7 @@ import com.alexnevsky.model.ProductDto;
 import com.alexnevsky.service.ProductService;
 import java.util.List;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * Date: 12/10/2020
  */
+@Slf4j
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/v1/products")
@@ -34,6 +36,12 @@ public class ProductControllerImpl implements ProductController {
   @Override
   @PutMapping
   public void importBatch(@RequestBody final List<ProductDto> products) {
-    ProductConsumer.QUERY.addAll(products);
+    products.forEach(p -> {
+      try {
+        ProductConsumer.QUERY.put(p);
+      } catch (InterruptedException e) {
+        log.error(e.getMessage(), e);
+      }
+    });
   }
 }
