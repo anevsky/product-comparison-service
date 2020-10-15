@@ -13,10 +13,14 @@ Note: test data created automatically on application start up.
 - Java 11
 - MongoDB
 - Spring
+- Docker
 - Lombok
 - MapStruct
 - LRU-cache (native)
 - Swagger
+
+## Docker
+To start the app you can simpy run `docker-compose.yml`
 
 ## API
 
