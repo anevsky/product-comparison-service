@@ -1,7 +1,7 @@
-FROM adoptopenjdk/openjdk11:jdk-11.0.5_10-alpine
+FROM openjdk:11.0.7-jre
 LABEL maintainer="anwer.man@gmail.com"
-VOLUME /tmp
-EXPOSE 8080
-ARG JAR_FILE=build/libs/product-comparison-service-1.0-SNAPSHOT.jar
-ADD ${JAR_FILE} app.jar
+RUN groupadd alex && \
+    useradd -g alex -m -s /bin/false alex
+COPY --chown=alex:alex build/libs/product-comparison-service-1.0-SNAPSHOT.jar ./app.jar
+USER alex
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]

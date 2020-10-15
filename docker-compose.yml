@@ -6,10 +6,18 @@ services:
     container_name: product-comparison-service
     links:
       - mongo
+    depends_on:
+      - mongo
     volumes:
-      - ./build/libs:/app
+      - ./build/libs:/app:ro
+      - ./startup-scripts:/startup-scripts:ro
     ports:
       - 8080:8080
+      - 11112:11112
+    command: /startup-scripts/start-service.sh
   mongo:
     image: mongo
+    restart: always
+    ports:
+      - 27027:27017
     command: --serviceExecutor adaptive
