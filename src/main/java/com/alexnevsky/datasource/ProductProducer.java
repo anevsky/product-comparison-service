@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.RandomUtils;
 import org.springframework.http.RequestEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.DefaultUriBuilderFactory;
 
@@ -18,6 +19,7 @@ import org.springframework.web.util.DefaultUriBuilderFactory;
  * Date: 14/10/2020
  */
 @Slf4j
+@Component
 public class ProductProducer {
 
   private static final int TEST_PRODUCTS_SIZE = 10000;
@@ -34,7 +36,7 @@ public class ProductProducer {
     }
   }
 
-  public static void main(String[] args) {
+  public void run() {
     RequestEntity<List<ProductDto>> requestEntity = RequestEntity
         .put(REST_TEMPLATE.getUriTemplateHandler().expand(IMPORT_URL))
         .body(buildTestProducts());

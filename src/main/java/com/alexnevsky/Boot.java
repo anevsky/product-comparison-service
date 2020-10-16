@@ -1,7 +1,6 @@
 package com.alexnevsky;
 
 import com.alexnevsky.datasource.ProductConsumer;
-import com.alexnevsky.datasource.ProductProducer;
 import javax.annotation.PreDestroy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -51,7 +50,6 @@ public class Boot {
     log.info("######################## [o_o] ########################");
     log.info("Hello World, I'm ready to serve!");
     log.info("######################## ##### ########################");
-    ProductProducer.main(new String[]{});
   }
 
   @PreDestroy

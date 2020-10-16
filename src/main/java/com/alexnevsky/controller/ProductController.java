@@ -53,8 +53,7 @@ public interface ProductController {
   @ApiOperation(httpMethod = "PUT",
       consumes = MediaType.APPLICATION_JSON_VALUE,
       value = "Import products.",
-      tags = {"product-controller"},
-      response = Void.class)
+      tags = {"product-controller"})
   @ApiImplicitParams({
       @ApiImplicitParam(
           name = "products",

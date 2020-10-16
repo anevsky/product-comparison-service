@@ -66,10 +66,10 @@ test {
 }
 
 docker {
-  dependsOn build
+  dependsOn build as Task
   name "${project.name}"
-  files bootJar.archivePath
-  buildArgs(['JAR_FILE': "${bootJar.archiveName}"])
+  files bootJar.archiveFile
+  buildArgs(['JAR_FILE': "${bootJar.archiveFileName}"])
 }
 
 dockerRun {

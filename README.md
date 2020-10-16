@@ -6,7 +6,7 @@ they can use to buy their product by comparing data from different providers.
 Assume there is an AI service that uses customer reviews for different products and provides recommendations on
 product providers, so we need to return the search result ranked based on result from recommendation service.
 
-Note: test data created automatically on application start up.
+``Note: please use Test API to import test 10000 data.``
 
 ## Tech Stack
 
@@ -20,7 +20,7 @@ Note: test data created automatically on application start up.
 - Swagger
 
 ## Docker
-To start the app you can simpy run `docker-compose.yml`
+To deploy the app you can simply run `docker-compose.yml`
 
 ## API
 
@@ -121,3 +121,8 @@ and then:
     }
 ]
 ```
+
+## Test API
+
+    # import 10000+ test products
+    # POST http://localhost:8080//api/v1/test/products/import
