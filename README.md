@@ -1,4 +1,4 @@
-## Product Comparison Service
+## ML Recommendation System Skeleton / Product Comparison Service
 
 A service that helps the end customer to decide which website or retail shop
 they can use to buy their product by comparing data from different providers.
